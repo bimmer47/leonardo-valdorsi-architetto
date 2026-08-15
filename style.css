@@ -1,0 +1,480 @@
+:root {
+  --color-bg: #ffffff;
+  --color-bg-alt: #f4f1ec;
+  --color-ink: #15151a;
+  --color-muted: #64636c;
+  --color-accent: #ff5a1f;
+  --color-accent-2: #0b5fff;
+  --color-bg-blue: #eaf1fc;
+  --color-line: #e4e0d8;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-bg);
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+.eyebrow.center, h2.center { text-align: center; }
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-line);
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.25rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.55rem;
+  letter-spacing: -0.01em;
+}
+
+.logo span {
+  display: block;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.main-nav {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-link {
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.nav-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--color-ink);
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #fff;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 55% at 18% 88%, rgba(255,90,31,0.45), transparent 70%),
+    linear-gradient(180deg, rgba(12,12,16,0.75), rgba(12,12,16,0.6) 45%, rgba(12,12,16,0.88));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+}
+
+.hero .eyebrow { color: #ffb08a; }
+
+.hero h1 {
+  font-size: clamp(2.75rem, 6vw, 4.75rem);
+  margin-bottom: 1rem;
+}
+
+.hero-sub {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: #eceaea;
+  margin-bottom: 2.25rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2.25rem;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  cursor: pointer;
+  background: transparent;
+  color: inherit;
+  font-family: var(--font-sans);
+}
+
+.btn-accent {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.btn-accent:hover {
+  background: transparent;
+  color: var(--color-accent);
+}
+
+.hero .btn-accent:hover { color: #fff; border-color: #fff; background: rgba(255,255,255,0.12); }
+
+/* Sections */
+.section { padding: 7rem 2rem; }
+
+.section.alt { background: var(--color-bg-alt); }
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+  margin-bottom: 1.25rem;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.col-text p { color: var(--color-muted); margin-bottom: 1rem; max-width: 48ch; }
+
+.feature-image {
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.feature-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.facts {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 2rem;
+  list-style: none;
+}
+
+.facts li {
+  display: flex;
+  flex-direction: column;
+}
+
+.facts strong {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.facts span {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  letter-spacing: 0.02em;
+}
+
+/* Projects */
+.project-grid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.project-card h3 {
+  margin-top: 0.35rem;
+  font-size: 1.25rem;
+}
+
+.project-card p {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.project-image {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image img { transform: scale(1.06); }
+
+.project-category {
+  margin-top: 1.1rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* BIM section */
+.bim-section {
+  background: var(--color-bg-blue);
+  color: var(--color-ink);
+}
+
+.bim-intro {
+  max-width: 68ch;
+  margin: 0 auto 3rem;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 1.05rem;
+}
+
+.bim-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.bim-card {
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--color-line);
+  border-radius: 4px;
+  background: #fff;
+  transition: border-color 0.25s ease;
+}
+
+.bim-card:hover {
+  border-color: var(--color-accent-2);
+}
+
+.bim-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-accent-2);
+  margin-bottom: 0.85rem;
+}
+
+.bim-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.bim-card p {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+/* Contact */
+.contact-list {
+  list-style: none;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.contact-list strong {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.contact-list a, .contact-list span { color: var(--color-ink); }
+
+#contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+#contactForm label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+}
+
+#contactForm input,
+#contactForm textarea {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--color-line);
+  border-radius: 2px;
+  background: #fff;
+  color: var(--color-ink);
+  resize: vertical;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+#contactForm .btn-accent {
+  align-self: flex-start;
+}
+
+.form-status {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  min-height: 1.2em;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 2.5rem 2rem;
+  border-top: 1px solid var(--color-line);
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; }
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+  .bim-grid { grid-template-columns: repeat(2, 1fr); }
+  .col-image { order: -1; }
+}
+
+@media (max-width: 640px) {
+  .nav-toggle { display: flex; }
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-bg);
+    flex-direction: column;
+    gap: 0;
+    border-bottom: 1px solid var(--color-line);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .main-nav.open { max-height: 300px; }
+  .nav-link {
+    padding: 1rem 2rem;
+    border-top: 1px solid var(--color-line);
+  }
+  .project-grid { grid-template-columns: 1fr; }
+  .bim-grid { grid-template-columns: 1fr; }
+  .facts { gap: 1.5rem; }
+}
